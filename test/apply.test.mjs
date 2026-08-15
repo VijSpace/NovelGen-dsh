@@ -29,14 +29,15 @@ const ctx = {
 apply(ctx, { root });
 
 try {
-  // 1) 17 个工具注册
-  assert.equal(registered.length, 17, '应注册 17 个 novel_* 工具');
+  // 1) 19 个工具注册
+  assert.equal(registered.length, 19, '应注册 19 个 novel_* 工具');
   const names = registered.map((t) => t.name).sort();
   assert.ok(names.includes('novel_list_projects'));
   assert.ok(names.includes('novel_write_chapter'));
   assert.ok(names.includes('novel_update_setting'));
   assert.ok(names.includes('novel_delete_setting'));
   assert.ok(names.includes('novel_rename_setting'));
+  assert.ok(names.includes('novel_roleplay_start'));
   assert.ok(names.every((n) => n.startsWith('novel_')));
 
   // 2) /novelgen 路由注册
@@ -51,7 +52,7 @@ try {
 
   // 4) 数据落盘到指定 root
   assert.ok(fs.existsSync(root));
-  console.log('  ✓ apply() 冒烟:17 工具 + /novelgen 路由 + novelgen 服务 + 数据目录');
+  console.log('  ✓ apply() 冒烟:19 工具 + /novelgen 路由 + novelgen 服务 + 数据目录');
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }
