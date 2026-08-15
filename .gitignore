@@ -1,0 +1,14 @@
+# 依赖
+node_modules/
+.pnpm-store/
+.npm-cache/
+
+# 测试/排查残留
+tmp-inspect/
+
+# 小说数据(用户数据,不入库)
+novels/
+novels-original/
+
+# 日志
+*.log

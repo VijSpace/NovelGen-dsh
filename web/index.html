@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovelGen - AI 小说创作</title>
+  <link rel="stylesheet" href="/novelgen/style.css?v=8">
+</head>
+<body>
+  <header class="topbar">
+    <h1>NovelGen</h1>
+    <span class="root-path" id="rootPath" title="数据目录"></span>
+    <button id="btnChangeRoot" class="btn sm" title="切换数据目录(自定义工作区,所有项目存放在该文件夹)">更改目录</button>
+    <div class="spacer"></div>
+    <button id="btnImport" class="btn" title="从 CSV/TXT/XLSX 导入新项目">导入</button>
+    <button id="btnExport" class="btn" title="导出当前项目为 TXT/XLSX">导出</button>
+    <button id="btnBackups" class="btn" title="查看版本快照(自动备份)并恢复">备份</button>
+    <button id="btnNewProject" class="btn primary">＋ 新建项目</button>
+    <a class="btn ghost" href="/" target="_blank">回到 DSH 对话</a>
+    <input type="file" id="fileInput" class="hidden" accept=".csv,.txt,.tsv,.xlsx,.xls">
+  </header>
+
+  <main class="layout">
+    <!-- 项目列表 -->
+    <aside class="panel projects" id="projectsPanel">
+      <div class="panel-title">项目<span class="spacer"></span><button class="icon-btn" id="btnHideProjects" title="隐藏项目栏">‹</button></div>
+      <div class="panel-body" id="projectsList"></div>
+    </aside>
+    <div class="projects-rail hidden" id="projectsRail" title="显示项目栏">›</div>
+
+    <!-- 卷章树 -->
+    <aside class="panel tree" id="treePanel">
+      <div class="panel-title" id="treeTitle">选择项目</div>
+      <div class="panel-body" id="treeBody"></div>
+    </aside>
+
+    <!-- 编辑器 / 设定 -->
+    <section class="editor" id="editorPanel">
+      <div class="empty-hint" id="emptyHint">
+        <div>从左侧选择项目与章节</div>
+        <div class="sub">也可以在 DSH 对话里让 AI 写作 —— 数据是同一份</div>
+      </div>
+      <div class="editor-inner hidden" id="editorInner">
+        <div class="editor-head">
+          <input id="chTitle" class="ch-title" placeholder="章节标题">
+          <select id="chStatus" class="ch-status">
+            <option value="draft">草稿</option>
+            <option value="done">已完成</option>
+            <option value="revising">修订中</option>
+          </select>
+          <span class="word-count" id="wordCount">0 字</span>
+          <button class="icon-btn" id="btnUndo" title="撤销(Ctrl+Z)" disabled>↩</button>
+          <button class="icon-btn" id="btnRedo" title="重做(Ctrl+Y / Ctrl+Shift+Z)" disabled>↪</button>
+          <button id="btnSave" class="btn primary">保存</button>
+        </div>
+        <textarea id="chContent" placeholder="正文……(AI 也可通过对话直接写入)"></textarea>
+        <div class="editor-foot">
+          <span class="save-hint" id="saveHint"></span>
+        </div>
+      </div>
+      <div class="settings-panel hidden" id="settingsPanel">
+        <div class="settings-head">
+          <span>设定</span>
+          <span class="spacer"></span>
+          <button class="icon-btn" id="btnCloseSettings" title="关闭设定,返回章节">✕</button>
+        </div>
+        <div class="settings" id="settingsBox"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-mask hidden" id="modalMask">
+    <div class="modal">
+      <div class="modal-title" id="modalTitle">输入名称</div>
+      <input id="modalInput" placeholder="名称">
+      <div class="modal-actions">
+        <button class="btn ghost" id="modalCancel">取消</button>
+        <button class="btn primary" id="modalOk">确定</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 版本快照(自动备份)面板 -->
+  <div class="modal-mask hidden" id="backupMask">
+    <div class="modal backups-modal">
+      <div class="modal-title">版本快照(自动备份)</div>
+      <div class="backup-list" id="backupList"></div>
+      <div class="modal-actions">
+        <button class="btn ghost" id="btnBackupClose">关闭</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/novelgen/app.js?v=8"></script>
+</body>
+</html>
