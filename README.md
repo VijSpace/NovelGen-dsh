@@ -1,4 +1,4 @@
-# 📚 NovelManager — 小说管理插件 for DSH
+# 📚 NovelGen-DSH — 小说管理插件 for DSH
 
 在 DeepSeek Harness (DSH) 对话中创作与管理小说的插件：项目管理、章节写作、世界观设定、剧情演绎、自动备份。小说数据本地 JSON 落盘，AI 工具与 Web 视图共用同一份数据。
 
