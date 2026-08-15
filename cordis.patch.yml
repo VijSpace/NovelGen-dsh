@@ -1,0 +1,10 @@
+# NovelGen 插件层:向 web profile 插入 novelgen 服务行。
+# 该行加载 novelgen-dsh 包(node 半边注册 novel_* 工具与 /novelgen Web 路由)。
+# 可选 config.root 指定小说数据目录(默认 <宿主进程 cwd>/novels)。
+
+- insert:
+    - id: novelgen
+      name: 'novelgen-dsh'
+      config:
+        # 留空则回退到 process.cwd()/novels
+        root: !!js process.env.DSH_NOVELGEN_ROOT ?? ''

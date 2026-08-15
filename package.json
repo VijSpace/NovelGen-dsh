@@ -1,0 +1,43 @@
+﻿{
+    "name":  "novelgen-dsh",
+    "version":  "0.1.0",
+    "description":  "NovelGen DSH 鎻掍欢:AI 灏忚鍒涗綔宸ュ叿(host 宸ュ叿 + /novelgen Web 瑙嗗浘),JSON 鏁版嵁钀界洏鍦ㄥ伐浣滃尯",
+    "type":  "module",
+    "main":  "lib/index.js",
+    "exports":  {
+                    ".":  "./lib/index.js",
+                    "./client":  "./lib/client.js",
+                    "./cordis.patch.yml":  "./cordis.patch.yml",
+                    "./package.json":  "./package.json"
+                },
+    "files":  [
+                  "lib",
+                  "web",
+                  "cordis.patch.yml",
+                  "README.md"
+              ],
+    "license":  "MIT",
+    "scripts":  {
+                    "test":  "node test/store.test.mjs \u0026\u0026 node test/tools.test.mjs \u0026\u0026 node test/routes.test.mjs \u0026\u0026 node test/import-parse.test.mjs \u0026\u0026 node test/schema-audit.mjs",
+                    "test:apply":  "node --experimental-loader ./test/resolve-hook.mjs test/apply.test.mjs"
+                },
+    "dsh":  {
+                "bundle":  {
+                               "patch":  "./cordis.patch.yml"
+                           },
+                "client":  {
+                               "platform":  "web",
+                               "inject":  [
+                                              "@deepseek-ai/dsh-client-runtime",
+                                              "@deepseek-ai/dsh-client-ui-sidebar"
+                                          ]
+                           }
+            },
+    "peerDependencies":  {
+                             "@deepseek-ai/dsh-tools":  "^0.1.0-rc.6"
+                         },
+    "devDependencies":  {
+                            "@deepseek-ai/dsh-tools":  "^0.1.0-rc.6",
+                            "@deepseek-ai/schemastery":  "^3.18.1"
+                        }
+}
