@@ -1,4 +1,4 @@
-/* ========== 全局重置与变量(日间模式,取自原 Electron 版) ========== */
+/* ========== 全局重置与变量(日间模式) ========== */
 :root {
   --bg-primary: #fefcf4;   /* 主背景 暖纸白 */
   --bg-secondary: #f5f0e6; /* 次级背景 浅奶油 */
@@ -40,7 +40,7 @@ body {
 }
 .hidden { display: none !important; }
 
-/* ========== 顶栏(与原版 #topBar 一致) ========== */
+/* ========== 顶栏 ========== */
 .topbar {
   display: flex; align-items: center; gap: 12px;
   height: 48px; padding: 0 16px; border-bottom: 1px solid var(--border);
@@ -50,7 +50,7 @@ body {
 .root-path { color: var(--text-muted); font-size: 12px; max-width: 40vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .spacer { flex: 1; }
 
-/* ========== 按钮(与原版 .btn 一致:无边框 + 米黄底) ========== */
+/* ========== 按钮(无边框 + 米黄底) ========== */
 .btn {
   border: none; background: var(--panel3); color: var(--text);
   border-radius: var(--radius-sm); padding: 8px 16px; cursor: pointer;
@@ -67,7 +67,7 @@ body {
 .btn.sm { padding: 4px 10px; font-size: 12px; }
 .btn:disabled { opacity: .5; cursor: not-allowed; }
 
-/* ========== 三栏布局(原版 #mainContainer) ========== */
+/* ========== 三栏布局 ========== */
 .layout { flex: 1; display: flex; min-height: 0; }
 .panel {
   display: flex; flex-direction: column; min-width: 0;
@@ -112,7 +112,7 @@ body {
 }
 .projects-rail:hover { color: var(--accent); background: var(--panel2); }
 
-/* ========== 目录树(原版 .novel-tree / .tree-ch) ========== */
+/* ========== 目录树 ========== */
 .tree-row {
   display: flex; align-items: center; gap: 4px; border-radius: var(--radius-sm);
   padding: 5px 8px; cursor: pointer; min-height: 28px;
@@ -145,7 +145,7 @@ body {
 .icon-btn:hover { color: var(--text); background: var(--panel3); }
 .icon-btn.danger:hover { color: var(--red); background: none; }
 
-/* ========== 章节编辑器(原版 .novel-view-toolbar / .chapter-editor) ========== */
+/* ========== 章节编辑器 ========== */
 .editor-inner { flex: 1; display: flex; flex-direction: column; min-height: 0; }
 .editor-head {
   display: flex; align-items: center; gap: 10px;
@@ -172,7 +172,7 @@ body {
 .save-hint.ok { color: var(--ok); }
 .save-hint.err { color: var(--danger); }
 
-/* ========== 设定(原版 #settingsView / .entry-card) ========== */
+/* ========== 设定 ========== */
 .settings-panel {
   display: flex; flex-direction: column; flex: 1; min-height: 0;
   background: var(--bg);
